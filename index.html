@@ -18,14 +18,9 @@
         display: table-cell;
     }
     div.tableColHeader,
-    div.tableBody {
-        overflow: auto;
-        width: 200px;
-    }
     div.tableBody,
     div.leftRowHeader {
         overflow: auto;
-        height: 70px;
     }
     div.rowHeaderElement,
     div.commonHeader {
@@ -33,12 +28,20 @@
     }
     div.leftHeader {
         float: left;
-        width: 100px;
     }
     div.tableColHeader,
     div.leftHeader {
         font-weight: bold;
         border: 1px solid;
+    }
+    div.tableWidth {
+        width: 200px;
+    }
+    div.tableHeight {
+        height: 70px;
+    }
+    div.rowHeaderWidth {
+        width: 100px;
     }
     </style>
 
@@ -49,14 +52,21 @@
 </head>
 
 <body>
+    <script>
+    var createTable = function(rows, cols) {
+        var table
+    }
+    </script>
+
+
     <div class='tableContainerDiv'>
 
-        <div class="leftHeader">
+        <div class="leftHeader rowHeaderWidth">
             <div class='commonHeader cellDimensions'>sample
                 <!-- Blank Space for common-->
             </div>
 
-            <div class='leftRowHeader'>
+            <div class='leftRowHeader tableHeight'>
                 <div class='rowHeaderElement cellDimensions'>RowHead</div>
                 <div class='rowHeaderElement cellDimensions'>RowHead</div>
                 <div class='rowHeaderElement cellDimensions'>RowHead</div>
@@ -67,14 +77,14 @@
             </div>
         </div>
         <div class='tableAndColHeader'>
-            <div class='tableColHeader'>
+            <div class='tableColHeader tableWidth'>
                 <div class='colHeaderElement cellDimensions'> ColHeader </div>
                 <div class='colHeaderElement cellDimensions'> ColHeader </div>
                 <div class='colHeaderElement cellDimensions'> ColHeader </div>
                 <div class='colHeaderElement cellDimensions'> ColHeader </div>
                 <div class='colHeaderElement cellDimensions'> ColHeader </div>
             </div>
-            <div class='tableBody'>
+            <div class='tableBody tableWidth tableHeight'>
                 <div class='tableRow'>
                     <div class='cell cellDimensions'>cell</div>
                     <div class='cell cellDimensions'>cell</div>
