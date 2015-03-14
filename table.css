@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+}
+div.cell {
+    display: table-cell;
+}
+div.cellDimensions {
+    min-width: 100px;
+}
+div.tableRow, div.commonHeader, div.rowHeaderElement {
+    display: table-row;
+}
+div.colHeaderElement {
+    display: table-cell;
+}
+div.tableColHeader, div.tableBody, div.leftRowHeader {
+    overflow: auto;
+}
+div.leftHeader {
+    float: left;
+}
+div.tableWidth {
+    width: 400px;
+}
+div.tableHeight {
+    height: 100px;
+}
+div.rowHeaderWidth {
+    width: 100px;
+}
+div.tableColHeader, div.leftHeader {
+    font-weight: bold;
+    border: 1px solid;
+}
