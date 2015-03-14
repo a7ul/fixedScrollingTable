@@ -4,6 +4,9 @@
 <head>
     <title></title>
     <style type='text/css'>
+    * {
+        box-sizing: border-box;
+    }
     div.cell {
         display: table-cell;
     }
@@ -54,7 +57,10 @@
 <body>
     <script>
     var createTable = function(rows, cols) {
-        var table
+        var tableContainer = document.createElement('div');
+        tableContainer.setAttribute('class', 'tableContainerDiv');
+        var leftHeader = document.createElement('div');
+
     }
     </script>
 
@@ -144,6 +150,13 @@
     var tableColHeader = document.getElementsByClassName('tableColHeader')[0];
     var tableBody = document.getElementsByClassName('tableBody')[0];
     var leftRowHeader = document.getElementsByClassName('leftRowHeader')[0];
+    var tableAndColHeader = document.getElementsByClassName('tableAndColHeader')[0];
+
+    //fixes the width calculation and also makes sure both row header and table are side to side
+    var tableBodyWidth = window.getComputedStyle(tableBody).getPropertyValue('width');
+    var leftRowHeaderWidth = window.getComputedStyle(leftRowHeader).getPropertyValue('width');
+    tableAndColHeader.style.width = parseInt(tableBodyWidth) + parseInt(leftRowHeaderWidth) + 5 + 'px';
+
 
     tableBody.addEventListener('scroll', function() {
         tableColHeader.scrollLeft = tableBody.scrollLeft;
