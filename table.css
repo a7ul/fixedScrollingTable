@@ -1,17 +1,15 @@
 * {
     box-sizing: border-box;
 }
-div.cell {
+div.cell, div.colHeaderElement {
     display: table-cell;
 }
 div.cellDimensions {
     min-width: 100px;
+    height: 20px;
 }
 div.tableRow, div.commonHeader, div.rowHeaderElement {
     display: table-row;
-}
-div.colHeaderElement {
-    display: table-cell;
 }
 div.tableColHeader, div.tableBody, div.leftRowHeader {
     overflow: auto;

@@ -1,16 +1,16 @@
-  var createTable = function(insertionDivId, rows, cols) {
+  var tableModule = {};
 
-//===========================================
-//      Dummy Data
-//============================================
+  tableModule.createTable = function(rows, cols) {
+
+      //===========================================
+      //      Dummy Data
+      //============================================
       var tablename = 'sampleTable';
       var celldata = 'cell';
       var rowHeaderElementData = 'rowHead';
       var columnHeaderElementData = 'colHead';
-//=============================================
-
-      var tableInsertionDiv = document.getElementById(insertionDivId);
-
+      //=============================================
+      console.time('hello');
       var tableWrap = document.createElement('div');
       tableWrap.setAttribute('class', 'tableWrap');
 
@@ -20,20 +20,24 @@
 
       var commonHeader = document.createElement('div');
       commonHeader.setAttribute('class', 'commonHeader cellDimensions');
-      commonHeader.appendChild(document.createTextNode('\t' + tablename + '\t'))
+      commonHeader.appendChild(document.createTextNode(tablename))
       leftHeader.appendChild(commonHeader);
 
 
       var leftRowHeader = document.createElement('div');
       leftRowHeader.setAttribute('class', 'leftRowHeader tableHeight');
+      leftHeader.appendChild(leftRowHeader);
+
+      var leftRowHeaderFrag = document.createDocumentFragment();
 
       for (i = 0; i < rows; ++i) {
           var rowHeaderElement = document.createElement('div');
           rowHeaderElement.setAttribute('class', 'rowHeaderElement cellDimensions');
           rowHeaderElement.appendChild(document.createTextNode(rowHeaderElementData));
-          leftRowHeader.appendChild(rowHeaderElement);
+          leftRowHeaderFrag.appendChild(rowHeaderElement);
       }
-      leftHeader.appendChild(leftRowHeader);
+      leftRowHeader.appendChild(leftRowHeaderFrag);
+
 
 
       var tableAndColHeader = document.createElement('div');
@@ -44,33 +48,40 @@
       tableColHeader.setAttribute('class', 'tableColHeader tableWidth');
       tableAndColHeader.appendChild(tableColHeader);
 
+      var tableColHeaderFrag = document.createDocumentFragment();
 
       for (i = 0; i < cols; ++i) {
           var colHeaderElement = document.createElement('div');
           colHeaderElement.setAttribute('class', 'colHeaderElement cellDimensions');
           colHeaderElement.appendChild(document.createTextNode(columnHeaderElementData));
-          tableColHeader.appendChild(colHeaderElement);
+          tableColHeaderFrag.appendChild(colHeaderElement);
       }
 
+      tableColHeader.appendChild(tableColHeaderFrag);
 
       var tableBody = document.createElement('div');
       tableBody.setAttribute('class', 'tableBody tableWidth tableHeight');
       tableAndColHeader.appendChild(tableBody);
 
+      var tableBodyFrag = document.createDocumentFragment();
+
       for (i = 0; i < rows; ++i) {
           var tableRow = document.createElement('div');
           tableRow.setAttribute('class', 'tableRow');
-          tableBody.appendChild(tableRow);
+          tableBodyFrag.appendChild(tableRow);
+
+          var tableRowFrag = document.createDocumentFragment();
 
           for (j = 0; j < cols; ++j) {
               var cell = document.createElement('div');
               cell.setAttribute('class', 'cell cellDimensions');
               cell.appendChild(document.createTextNode(celldata));
-              tableRow.appendChild(cell);
+              tableRowFrag.appendChild(cell);
           }
+          tableRow.appendChild(tableRowFrag);
       }
 
-      tableInsertionDiv.appendChild(tableWrap);
+      tableBody.appendChild(tableBodyFrag);
 
 
       //fixes the width calculation and also makes sure both row header and table are side to side
@@ -92,8 +103,23 @@
       leftRowHeader.addEventListener('scroll', function() {
           tableBody.scrollTop = leftRowHeader.scrollTop;
       });
+
+      console.timeEnd('hello');
+      return tableWrap;
   }
 
+
+
+  tableModule.insertTable = function(insertionDivId, table) {
+      var tableInsertionDiv = document.getElementById(insertionDivId);
+      tableInsertionDiv.appendChild(table);
+  }
+
+
+  tableModule.insertData = function(rowHeaderData, colHeaderData, cellData, table) {
+
+
+  }
 
 
   // <!-- TABLE BELOW IS GENERATED DYNAMICALLY , THIS IS LEFT FOR REFERENCE -->
