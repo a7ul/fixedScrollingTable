@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+.cellDimensions {
+    min-width: 100px;
+    height: 20px;
+    text-align: center;
+}
+.leftHeader {
+    float: left;
+}
+.tableColHeader, .tableBody, .leftRowHeader {
+    overflow: auto;
+    display: block
+}
+.tableColHeader, .leftRowHeader {
+    font-weight: bold;
+    border: 1px solid;
+}
+div.leftRowHeader > table, div.tableColHeader > table, div.tableBody > table {
+    width: 100%;
+    border-spacing: 0px;
+}
+.commonHeader {
+    border: 1px solid;
+}
+.tableWidth {
+    width: 400px;
+}
+.tableHeight {
+    height: 100px;
+}
+.rowHeaderWidth {
+    width: 100px;
+}
+
+.leftRowHeader{
+    margin-top: 1px;
+}

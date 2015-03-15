@@ -17,6 +17,10 @@ div.tableColHeader, div.tableBody, div.leftRowHeader {
 div.leftHeader {
     float: left;
 }
+div.tableColHeader, div.leftHeader {
+    font-weight: bold;
+    border: 1px solid;
+}
 div.tableWidth {
     width: 400px;
 }
@@ -25,8 +29,4 @@ div.tableHeight {
 }
 div.rowHeaderWidth {
     width: 100px;
-}
-div.tableColHeader, div.leftHeader {
-    font-weight: bold;
-    border: 1px solid;
 }
