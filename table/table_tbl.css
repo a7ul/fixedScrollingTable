@@ -4,6 +4,8 @@
 .cellDimensions {
     min-width: 100px;
     height: 20px;
+    max-width: 100px;
+    overflow: hidden;
     text-align: center;
 }
 .leftHeader {
@@ -33,7 +35,6 @@ div.leftRowHeader > table, div.tableColHeader > table, div.tableBody > table {
 .rowHeaderWidth {
     width: 100px;
 }
-
-.leftRowHeader{
+.leftRowHeader {
     margin-top: 1px;
 }
